@@ -7,6 +7,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 app.use("/webhook", bodyParser.raw({ type: "application/json" }));
 app.use(bodyParser.json());
+const cron = require("node-cron");
+const axios = require("axios");
 const cors = require("cors");
 const User = require("./User");
 const Bsolo1 = require("./Bsolo1");
@@ -154,6 +156,14 @@ async function main() {
     "mongodb+srv://legendaryairforce:ASHWIN01012004@log.ukli1gy.mongodb.net/clientdata"
   );
 }
+cron.schedule("* * * * *", async () => {
+  try {
+    const response = await axios.get("https://gaminghubsever.onrender.com/coin");
+    // console.log("Cron job executed successfully:", response.data);
+  } catch (error) {
+    // console.error("Error in Cron job:", error.message);
+  }
+});
 app.post("/cnp", async (req, res) => {
   const password = req.body.pass;
   const pass = await User.where({ username: req.body.username }).select(
