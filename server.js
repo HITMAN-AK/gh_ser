@@ -161,8 +161,10 @@ cron.schedule("* * * * *", async () => {
     const response = await axios.get(
       "https://gaminghubsever.onrender.com/coin"
     );
+    console.log("gs");
   } catch (error) {
     console.error("Error in Cron job:", error.message);
+    console.log("g");
   }
 });
 cron.schedule("* * * * *", async () => {
@@ -170,8 +172,10 @@ cron.schedule("* * * * *", async () => {
     const response = await axios.get(
       "https://cabackend-uvxk.onrender.com/users/"
     );
+    console.log("cs");
   } catch (error) {
     console.error("Error in Cron job:", error.message);
+    console.log("c");
   }
 });
 app.post("/cnp", async (req, res) => {
