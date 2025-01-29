@@ -162,7 +162,7 @@ cron.schedule("* * * * *", async () => {
       "https://gaminghubsever.onrender.com/coin"
     );
   } catch (error) {
-    // console.error("Error in Cron job:", error.message);
+    console.error("Error in Cron job:", error.message);
   }
 });
 cron.schedule("* * * * *", async () => {
@@ -171,7 +171,7 @@ cron.schedule("* * * * *", async () => {
       "https://cabackend-uvxk.onrender.com/users/"
     );
   } catch (error) {
-    // console.error("Error in Cron job:", error.message);
+    console.error("Error in Cron job:", error.message);
   }
 });
 app.post("/cnp", async (req, res) => {
